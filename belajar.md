@@ -11,3 +11,7 @@ https://kiranvj.com/blog/blog/react-environment-variables-not-working/
 6. Do not put semicolon ; or comma , at the end of each line.
 
 # pelajari cara membuat loader di react
+
+# cara import google font di sass
+
+@import url(src);
