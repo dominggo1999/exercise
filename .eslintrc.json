@@ -1,51 +1,51 @@
 {
-  "name": "exercise",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.7.1",
-    "axios": "^0.21.1",
-    "dotenv": "^8.2.0",
-    "faker": "^5.4.0",
-    "gsap": "^3.6.0",
-    "node-sass": "^4.14.1",
-    "normalize.css": "^8.0.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-gsap": "^2.2.1",
-    "react-icons": "^4.2.0",
-    "react-redux": "^7.2.2",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.2",
-    "redux": "^4.0.5",
-    "styled-components": "^5.2.1",
-    "web-vitals": "^1.1.0"
+  "env": {
+    "browser": true,
+    "es2021": true
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "extends": ["plugin:react/recommended", "airbnb"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
   },
-  "eslintConfig": {
-    "extends": ["react-app", "react-app/jest"]
-  },
-  "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all"],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "eslint": "^7.20.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.22.0",
-    "eslint-plugin-react-hooks": "^4.2.0"
+  "plugins": ["react"],
+  "rules": {
+    "react/jsx-filename-extension": [0],
+    "react/react-in-jsx-scope": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "no-unused-vars": "off",
+    "no-unused-expressions": "off",
+    "keyword-spacing": "off",
+    "react/button-has-type": 0,
+    "react/jsx-first-prop-new-line": [1, "multiline"],
+    "react/jsx-max-props-per-line": [
+      1,
+      {
+        "maximum": 1
+      }
+    ],
+    "linebreak-style": 0,
+    "no-console": 0,
+    "react/prop-types": 0,
+    "react/function-component-definition": 0,
+    "arrow-body-style": 0,
+    "react/self-closing-comp": 0,
+    "no-shadow": 0,
+    "no-param-reassign": 0,
+    "import/no-cycle": 0,
+    "max-len": ["error", { "code": 1000 }],
+    "react/destructuring-assignment": 0,
+    "prefer-destructuring": 0,
+    "jsx-a11y/label-has-associated-control": 0,
+    "consistent-return": 0,
+    "react/jsx-props-no-spreading": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/interactive-supports-focus": 0,
+    "import/prefer-default-export": 0,
+    "no-plusplus": 0,
+    "jsx-a11y/control-has-associated-label": 0
   }
 }
