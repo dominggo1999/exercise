@@ -1,11 +1,14 @@
 import React from 'react';
-import Placeholder from './components/Placeholder';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
 
 const App = () => {
   return (
-    <div>
-      <Placeholder />
-    </div>
+    <Router>
+      <div className="portfolio">
+        <Sidebar />
+      </div>
+    </Router>
   );
 };
 

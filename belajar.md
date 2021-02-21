@@ -11,3 +11,7 @@ https://kiranvj.com/blog/blog/react-environment-variables-not-working/
 6. Do not put semicolon ; or comma , at the end of each line.
 
 # pelajari cara membuat loader di react
+
+# How to exclude particular class name in CSS selector?
+
+https://stackoverflow.com/questions/16201948/how-to-exclude-particular-class-name-in-css-selector

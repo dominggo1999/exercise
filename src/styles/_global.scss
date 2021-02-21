@@ -3,3 +3,22 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  background: $primary;
+  min-height: 100vh;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  display: inline-block;
+  color: $w;
+  text-decoration: none;
+}
+
+span {
+  display: inline-block;
+}
