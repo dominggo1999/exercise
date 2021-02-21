@@ -1,14 +1,15 @@
 import React from 'react';
 import MenuCard from './MenuCard';
+import SectionTitle from './SectionTitle';
 import { menuData } from '../static';
 
 const MenuPreviewSection = () => {
   return (
     <div className="menu-preview container">
-      <h1 className="menu__preview__title">Freshly Taste</h1>
-      <div className="menu__preview__subtitle">
-        NEW IN OUR MENU
-      </div>
+      <SectionTitle
+        title="Freshly Taste"
+        subtitle="NEW IN OUR MENU"
+      />
       <div className="card-container">
         {
           menuData.map(({ id, ...restProps }) => {

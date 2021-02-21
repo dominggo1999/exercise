@@ -48,7 +48,7 @@ const Navbar = () => {
           <li><Link to="/products">Products</Link></li>
           <li><Link to="/stories">Stories</Link></li>
           <li><Link to="/contacts">Contacts</Link></li>
-          <li className="btn"><Link to="/">Book a Table</Link></li>
+          <li className="btn-nav"><Link to="/">Book a Table</Link></li>
         </ul>
       </div>
 

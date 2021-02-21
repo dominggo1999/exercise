@@ -1,0 +1,15 @@
+.btn {
+  text-transform: uppercase;
+  padding: 15px 30px;
+  font-family: $robotoCondensed;
+  border: none;
+  background: $primary;
+  color: $w;
+  font-weight: 400;
+  cursor: pointer;
+
+  &:hover {
+    background: $b;
+    color: $w;
+  }
+}
