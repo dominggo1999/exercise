@@ -15,3 +15,5 @@ https://kiranvj.com/blog/blog/react-environment-variables-not-working/
 # cara import google font di sass
 
 @import url(src);
+
+# kalau ada gap diantara div tambahkan display flex atau buat line height = 0
