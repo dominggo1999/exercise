@@ -8,6 +8,10 @@
   background-repeat: no-repeat;
   position: relative;
 
+  .container {
+    padding: 0;
+  }
+
   .gradient {
     position: absolute;
     top: 0;
