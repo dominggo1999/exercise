@@ -1,0 +1,23 @@
+button.btn {
+  padding: 10px 35px;
+  font-family: $notoSans;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: none;
+  background: $w;
+  color: $primary;
+  border-radius: 5px;
+  transition: ease-in-out 400ms;
+  cursor: pointer;
+
+  &:hover,
+  &.primary {
+    color: $w;
+    background: $primary;
+  }
+
+  &.primary:hover {
+    color: $primary;
+    background: $w;
+  }
+}

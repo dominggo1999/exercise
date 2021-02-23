@@ -1,11 +1,31 @@
 import React from 'react';
-import Placeholder from './components/Placeholder';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Header from './components/Header';
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 const App = () => {
   return (
-    <div>
-      <Placeholder />
-    </div>
+    <Router>
+      <div>
+        <Header />
+        <Switch>
+          <Route
+            path="/"
+            component={Home}
+          />
+          <Route
+            path="/about"
+            component={About}
+          />
+          <Route
+            path="/contact"
+            component={Contact}
+          />
+        </Switch>
+      </div>
+    </Router>
   );
 };
 

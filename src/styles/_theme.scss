@@ -1,4 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
+
+$notoSans: 'Noto Sans JP', sans-serif;
+
 //Color
+$primary: #0278f3;
+$g: #666666;
 $b: #000;
 $w: #fff;
 
@@ -9,3 +15,9 @@ $md: 768px;
 $lg: 992px;
 $xl: 1200px;
 $xxl: 1400px;
+
+// Font
+body,
+html {
+  font-family: $notoSans;
+}
