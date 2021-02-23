@@ -3,3 +3,23 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container.reverse {
+  flex-direction: row-reverse;
+}
+
+ul {
+  list-style: none;
+
+  a {
+    display: inline-block;
+    color: $b;
+    text-decoration: none;
+  }
+}
