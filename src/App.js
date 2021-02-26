@@ -1,10 +1,12 @@
 import React from 'react';
-import Placeholder from './components/Placeholder';
+import { Route } from 'react-router-dom';
+import Button from './components/Button/Button';
+import Navbar from './components/Navbar/Navbar';
 
 const App = () => {
   return (
     <div>
-      <Placeholder />
+      <Navbar />
     </div>
   );
 };
