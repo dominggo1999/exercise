@@ -2,8 +2,81 @@
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
     url('http://exill.dk/demo/kitzu/template/img/home.jpg');
   width: 100%;
-  height: 100vh;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  min-height: 500px;
+  height: 100vh;
+
+  .container {
+    height: 100%;
+    align-items: center;
+    position: relative;
+    color: $w;
+
+    .hero__content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .hero__name {
+        font-size: 62px;
+        font-weight: 700;
+        margin-bottom: 34px;
+        text-align: center;
+      }
+
+      .hero__desc {
+        font-size: 30px;
+      }
+    }
+    .hero__language,
+    .hero__social-media {
+      position: absolute;
+      bottom: 0;
+    }
+
+    .hero__language {
+      left: 15px;
+      bottom: 30px;
+      p {
+        transform: rotate(-90deg);
+      }
+    }
+
+    .hero__social-media {
+      right: 15px;
+      bottom: 33px;
+      display: flex;
+      flex-direction: column;
+
+      svg {
+        cursor: pointer;
+        margin-top: 15px;
+        width: 23px;
+        height: 23px;
+      }
+
+      svg:hover {
+        fill: $primary;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $md) {
+  .hero {
+    .container {
+      .hero__content {
+        .hero__name {
+          font-size: 48px;
+        }
+        .hero__desc {
+          font-size: 26px;
+        }
+      }
+    }
+  }
 }

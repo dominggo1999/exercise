@@ -32,7 +32,11 @@ button {
   font-family: $poppins;
 }
 
-.custom-container {
-  padding: 0 50px;
+.custom-container,
+.container {
   max-width: 1300px;
+}
+
+span {
+  display: inline-flex;
 }
