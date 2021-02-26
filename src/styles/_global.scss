@@ -19,7 +19,7 @@ ul {
 
   a {
     display: inline-block;
-    color: $b;
+    color: $w;
     text-decoration: none;
   }
 }
@@ -30,4 +30,9 @@ body {
 
 button {
   font-family: $poppins;
+}
+
+.custom-container {
+  padding: 0 50px;
+  max-width: 1300px;
 }
