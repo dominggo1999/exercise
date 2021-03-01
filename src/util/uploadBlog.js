@@ -1,8 +1,7 @@
-import { snap } from 'gsap/gsap-core';
 import firebase from 'firebase/app';
-import { db } from '../../firebase/firebaseUtils';
+import { db } from '../firebase/firebaseUtils';
 
-const uploadBlog = async (blogTitle, blogCategories, blogContent) => {
+const uploadBlog = async (blogTitle, blogCategories, blogContent, updating = false, id) => {
   // Cek ada berapa kategori yang mau di upload dan format ke bentuk array
   blogCategories = blogCategories.split(',').map((c) => c.replace(/\s/g, '').toLowerCase());
 
@@ -20,15 +19,24 @@ const uploadBlog = async (blogTitle, blogCategories, blogContent) => {
   });
 
   // kalau belum ada dokumennya dan mau dibuat, doc nya parameternya kosong
-  const blogRef = await db.collection('blogs').doc();
+  const collectionRef = await db.collection('blogs');
+  // const blogRef = .doc();
 
-  blogRef.set({
+  const newData = {
     title: blogTitle,
     created: firebase.firestore.FieldValue.serverTimestamp(),
     author: 'admin',
     categories: blogCategories,
     content: blogContent,
-  });
+  };
+
+  if(updating) {
+    const blogRef = collectionRef.doc(id);
+    blogRef.update(newData);
+  } else{
+    const blogRef = collectionRef.doc();
+    blogRef.set(newData);
+  }
 };
 
 export default uploadBlog;

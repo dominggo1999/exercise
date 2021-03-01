@@ -1,0 +1,36 @@
+.blog {
+  .blog-header {
+    display: flex;
+    align-items: center;
+
+    a,
+    button {
+      margin-left: 20px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1e1e1e;
+      border-radius: 50%;
+
+      &:hover {
+        background: #242424;
+        color: #007acc;
+
+        svg {
+          fill: #007acc;
+        }
+      }
+    }
+    button {
+      color: $w;
+      font-size: 20px;
+    }
+
+    svg {
+      width: 100px;
+      fill: $w;
+    }
+  }
+}

@@ -3,11 +3,15 @@ import { FaDove } from 'react-icons/fa';
 import Blog from './Blog';
 import { db } from '../../firebase/firebaseUtils';
 
-const BlogPreview = () => {
+const BlogPreview = ({ category }) => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    const query = db.collection('blogs').orderBy('created', 'desc');
+    const categoryToGet = category
+      ? db.collection('blogs').where('categories', 'array-contains', category)
+      : db.collection('blogs');
+
+    const query = categoryToGet.orderBy('created', 'desc');
 
     const getBlogs = async () => {
       const snapshot = await query.get();
@@ -22,7 +26,7 @@ const BlogPreview = () => {
 
     const unsubscribe = query.onSnapshot(getBlogs, (err) => console.log(err));
     return () => unsubscribe();
-  }, []);
+  }, [category]);
 
   return (
     <div>

@@ -1,42 +1,68 @@
 import React, { useState, useEffect } from 'react';
 import { useQuill } from 'react-quilljs';
 import 'quill/dist/quill.snow.css'; // Add css for snow theme
+import { date } from 'faker';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { db } from '../../firebase/firebaseUtils';
 import uploadBlog from '../../util/uploadBlog';
 
-// srv https://github.com/gtgalone/react-quilljs
-
-const TextEditor = () => {
+const UpdateBlog = ({ edit }) => {
   const { quill, quillRef } = useQuill();
   const [content, setContent] = useState('');
   const [title, setTitle] = useState('');
   const [categories, setCategories] = useState('');
-
+  const [updating, setUpdating] = useState(true);
   const history = useHistory();
 
   const handleChange = (e) => {
     const { id, value } = e.target;
 
-    if(id === 'blogTitle') setTitle(value);
+    if(id === 'updatedBlogTitle') setTitle(value);
     else setCategories(value);
   };
 
+  console.log(title);
+
   useEffect(() => {
-    if (quill) {
+    const query = db.collection('blogs').doc(edit);
+
+    const getBlog = async () => {
+      const snapshot = await query.get();
+      const data = snapshot.data();
+
+      if(updating) {
+        setTitle(data.title);
+        setCategories(data.categories.join(','));
+        setContent(data.content);
+        setUpdating(false);
+      }
+    };
+
+    const unsubscribe = query.onSnapshot(getBlog, (err) => {
+      console.log(err);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    if (quill && !updating) {
+      quill.root.innerHTML = content;
       quill.on('text-change', () => {
         const content = quill.root.innerHTML;
         setContent(content);
       });
     }
-  }, [quill]);
+  }, [quill, updating]);
 
   const submitBlog = (e) => {
     e.preventDefault();
 
     if(title && categories) {
-      uploadBlog(title, categories, content);
+      const updating = true;
+      const id = edit;
+      uploadBlog(title, categories, content, updating, id);
     }else{
       console.log('please input a title and categories');
     }
@@ -50,15 +76,15 @@ const TextEditor = () => {
   return (
     <>
       <form>
-        <label htmlFor="blogTitle">Title</label>
+        <label htmlFor="updatedBlogTitle">Title</label>
         <input
-          type="text" id="blogTitle"
+          type="text" id="updatedBlogTitle"
           name="Blog title"
           placeholder="title"
           onChange={handleChange}
           value={title}
         />
-        <label htmlFor="blogCategories">Categories</label>
+        <label htmlFor="updatedBlogCategories">Categories</label>
         <input
           type="text" id="blogCategories"
           name="Categories"
@@ -66,7 +92,7 @@ const TextEditor = () => {
           onChange={handleChange}
           value={categories}
         />
-        <button onClick={submitBlog}>Upload</button>
+        <button onClick={submitBlog}>Update</button>
       </form>
       <div className="container">
         <div style={{ width: 500, height: 300 }}>
@@ -77,4 +103,4 @@ const TextEditor = () => {
   );
 };
 
-export default TextEditor;
+export default UpdateBlog;
