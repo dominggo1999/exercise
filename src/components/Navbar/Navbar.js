@@ -14,19 +14,21 @@ const Navbar = () => {
         <FaHamburger />
       </div>
       <div className="nav__menu">
-        <ul className>
+        <ul>
           <li>
             <NavLink
               to="/"
+              exact
               activeClassName="selected"
             >Home
             </NavLink>
           </li>
           <li>
             <NavLink
-              to="/"
+              exact
+              to="/admin"
               activeClassName="selected"
-            >About
+            >Admin
             </NavLink>
           </li>
           <li>
