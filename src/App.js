@@ -15,7 +15,7 @@ const App = () => {
   const edit = new URLSearchParams(location.search).get('edit');
 
   return (
-    <div>
+    <div className="blog-app">
       <Navbar />
       <Categories />
       <Switch>

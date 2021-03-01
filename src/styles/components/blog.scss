@@ -1,36 +1,46 @@
-.blog {
-  .blog-header {
+.blog-preview {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  .blog {
     display: flex;
-    align-items: center;
-
-    a,
-    button {
-      margin-left: 20px;
-      width: 40px;
-      height: 40px;
+    flex-direction: column;
+    width: 50%;
+    flex-wrap: wrap;
+    .blog-header {
       display: flex;
       align-items: center;
-      justify-content: center;
-      background: #1e1e1e;
-      border-radius: 50%;
+      flex-wrap: wrap;
 
-      &:hover {
-        background: #242424;
-        color: #007acc;
+      a,
+      button {
+        margin-left: 20px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #1e1e1e;
+        border-radius: 50%;
 
-        svg {
-          fill: #007acc;
+        &:hover {
+          background: #242424;
+          color: #007acc;
+
+          svg {
+            fill: #007acc;
+          }
         }
       }
-    }
-    button {
-      color: $w;
-      font-size: 20px;
-    }
+      button {
+        color: $w;
+        font-size: 20px;
+      }
 
-    svg {
-      width: 100px;
-      fill: $w;
+      svg {
+        width: 100px;
+        fill: $w;
+      }
     }
   }
 }

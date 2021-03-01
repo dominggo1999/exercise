@@ -29,7 +29,7 @@ const BlogPreview = ({ category }) => {
   }, [category]);
 
   return (
-    <div>
+    <div className="blog-preview">
       {
           blogs.length ? blogs.map((blog) => {
             return (

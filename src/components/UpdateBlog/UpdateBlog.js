@@ -22,8 +22,6 @@ const UpdateBlog = ({ edit }) => {
     else setCategories(value);
   };
 
-  console.log(title);
-
   useEffect(() => {
     const query = db.collection('blogs').doc(edit);
 
