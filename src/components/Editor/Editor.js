@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { AiOutlineAlignLeft, AiOutlineAlignRight, AiOutlineAlignCenter } from 'react-icons/ai';
 import { IconContext } from 'react-icons';
+import { connect } from 'react-redux';
+import { setFontSize } from '../../redux/canvas/canvasActions';
 
-const Editor = () => {
-  const [fontSize, setFontSize] = useState(20);
+const Editor = ({ fontSize, setFontSize }) => {
   const [textColor, setTextColor] = useState('#000000');
   const [bgColor, setBgColor] = useState('#000000');
   const [bgImage, setBgImage] = useState('');
@@ -45,7 +46,7 @@ const Editor = () => {
         <span>Quotes</span>
       </div>
       <div className="font-size-selector">
-        <label htmlFor="fontSize">Font Size</label>
+        <label htmlFor="fontSize">Font Size : {fontSize}</label>
         <input
           name="fontSize"
           id="font-size"
@@ -96,4 +97,12 @@ const Editor = () => {
   );
 };
 
-export default Editor;
+const mapStateToProps = (state) => ({
+  fontSize: state.canvas.fontSize,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setFontSize: (size) => dispatch(setFontSize(size)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Editor);
