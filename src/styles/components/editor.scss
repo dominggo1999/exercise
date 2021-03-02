@@ -1,0 +1,11 @@
+.editor {
+  display: flex;
+  flex-direction: column;
+  max-width: 220px;
+  padding: 20px 30px;
+
+  .editor-tab {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

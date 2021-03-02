@@ -1,0 +1,22 @@
+.text-input-container {
+  max-width: 300px;
+  background: #1e1e1e;
+  height: 100vh;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 10px;
+
+  h1 {
+    color: $w;
+  }
+
+  textarea {
+    border: none;
+    padding: 10px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
