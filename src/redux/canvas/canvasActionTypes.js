@@ -1,2 +1,4 @@
 export const SET_FONT_SIZE = 'SET_FONT_SIZE';
 export const SET_TEXT_VALUE = 'SET_TEXT_VALUE';
+export const SET_TEXT_COLOR = 'SET_TEXT_COLOR';
+export const SET_BACKGROUND_COLOR = 'SET_BACKGROUND_COLOR';

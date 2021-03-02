@@ -2,11 +2,16 @@ import React, { useState } from 'react';
 import { AiOutlineAlignLeft, AiOutlineAlignRight, AiOutlineAlignCenter } from 'react-icons/ai';
 import { IconContext } from 'react-icons';
 import { connect } from 'react-redux';
-import { setFontSize } from '../../redux/canvas/canvasActions';
+import { setFontSize, setTextColor, setBgColor } from '../../redux/canvas/canvasActions';
 
-const Editor = ({ fontSize, setFontSize }) => {
-  const [textColor, setTextColor] = useState('#000000');
-  const [bgColor, setBgColor] = useState('#000000');
+const Editor = ({
+  fontSize,
+  setFontSize,
+  textColor,
+  setTextColor,
+  bgColor,
+  setBgColor,
+}) => {
   const [bgImage, setBgImage] = useState('');
   const [bgInputValue, setBgInputValue] = useState('');
 
@@ -99,10 +104,14 @@ const Editor = ({ fontSize, setFontSize }) => {
 
 const mapStateToProps = (state) => ({
   fontSize: state.canvas.fontSize,
+  textColor: state.canvas.textColor,
+  bgColor: state.canvas.bgColor,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   setFontSize: (size) => dispatch(setFontSize(size)),
+  setTextColor: (textColor) => dispatch(setTextColor(textColor)),
+  setBgColor: (bgColor) => dispatch(setBgColor(bgColor)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Editor);

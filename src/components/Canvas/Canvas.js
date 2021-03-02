@@ -1,11 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import TextCanvas from './TextCanvas';
 
-const Canvas = () => {
+const Canvas = ({ bgColor }) => {
+  const bgSettings = {
+    background: bgColor,
+  };
+
   return (
     <div className="canvas">
-      <div className="canvas-square">
-        <div className="canvas-bgColor" />
+      <div className="canvas-square" id="canvas">
+        <div className="canvas-bgColor" style={bgSettings} />
         <div className="canvas-bgImage" />
         <TextCanvas />
       </div>
@@ -13,4 +18,8 @@ const Canvas = () => {
   );
 };
 
-export default Canvas;
+const mapStateToProps = (state) => ({
+  bgColor: state.canvas.bgColor,
+});
+
+export default connect(mapStateToProps)(Canvas);

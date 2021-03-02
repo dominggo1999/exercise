@@ -1,19 +1,20 @@
 import React, {
-  useState, useEffect, useCallback,
+  useState, useEffect, useCallback, useRef,
 } from 'react';
 import { connect } from 'react-redux';
 import { Rnd } from 'react-rnd';
 import { useResizeDetector } from 'react-resize-detector';
 import CornerDot from './CornerDot';
 
-const TextCanvas = ({ textValue, fontSize }) => {
+const TextCanvas = ({ textValue, fontSize, textColor }) => {
   const textStyle = {
     fontSize: `${fontSize}px`,
-    color: 'white',
+    color: textColor,
   };
+
   const [textState, setTextState] = useState({
-    x: 0,
-    y: 0,
+    x: (500 - 320) / 2,
+    y: (500 - 200) / 2,
     width: 320,
     height: 200,
   });
@@ -58,7 +59,13 @@ const TextCanvas = ({ textValue, fontSize }) => {
         className="canvas-text-draggable"
       >
         <CornerDot />
-        <p ref={ref}>{textValue}</p>
+        <p ref={ref}>
+          {
+            textValue.split('\n').map((item, key) => {
+              return <span key={key}>{item}<br /></span>;
+            })
+          }
+        </p>
       </Rnd>
     </div>
   );
@@ -67,6 +74,7 @@ const TextCanvas = ({ textValue, fontSize }) => {
 const mapStateToProps = (state) => ({
   textValue: state.canvas.textValue,
   fontSize: state.canvas.fontSize,
+  textColor: state.canvas.textColor,
 });
 
 export default connect(mapStateToProps)(TextCanvas);

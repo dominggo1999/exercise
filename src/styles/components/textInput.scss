@@ -14,9 +14,11 @@
   textarea {
     border: none;
     padding: 10px;
+    white-space: pre-line;
 
     &:focus {
       outline: none;
+      white-space: pre-line;
     }
   }
 }
