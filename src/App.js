@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
-import Form from './components/Form/Form';
+import Register from './components/Form/Register';
 
 const App = () => {
   return (
     <div>
-      <Form />
+      <Register />
     </div>
   );
 };
