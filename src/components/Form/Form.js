@@ -1,5 +1,6 @@
 import React from 'react';
-import { useFormik } from 'formik';
+import { useFormik, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 
 const initialValues = {
   name: '',
@@ -32,11 +33,18 @@ const validate = (values) => {
   return errors;
 };
 
+const validationSchema = Yup.object({
+  name: Yup.string().required('Required'),
+  email: Yup.string().email('Invalid email address').required('Required'),
+  channel: Yup.string().required('Required'),
+});
+
 const Form = () => {
   const formik = useFormik({
     initialValues,
     onSubmit,
-    validate,
+    // validate,
+    validationSchema,
   });
 
   const touched = formik.touched;
@@ -48,9 +56,7 @@ const Form = () => {
         <label htmlFor="name">Name</label>
         <input
           type="text" id="name"
-          name="name" onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.name}
+          name="name" {...formik.getFieldProps('name')}
         />
         {
           touched.name && errors.name && <div>{errors.name}</div>
@@ -58,9 +64,7 @@ const Form = () => {
         <label htmlFor="email">Email</label>
         <input
           type="email" id="email"
-          name="email" onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.email}
+          name="email" {...formik.getFieldProps('email')}
         />
         {
           touched.email && errors.email && <div>{errors.email}</div>
@@ -68,9 +72,7 @@ const Form = () => {
         <label htmlFor="name">Channel</label>
         <input
           type="text" id="channel"
-          name="channel" onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.channel}
+          name="channel" {...formik.getFieldProps('channel')}
         />
         {
           touched.channel && errors.channel && <div>{errors.channel}</div>
